@@ -10,7 +10,7 @@ class PureClassComponent extends PureComponent {
     };
 
     render() {
-        console.log("FirstComponent -- Render method called");
+        console.log("FirstComponent (PureComponent) -- Render method called");
         return (
             <div>
                 <p> Course is : {this.state.name} </p>
