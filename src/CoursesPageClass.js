@@ -1,11 +1,17 @@
 import React from 'react';
 
 class CoursesPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { framework: '' };
+    }
+
     showMessage = () => {
-        alert('Followed ' + this.props.framework);
+        alert('Followed ' + this.state.framework);
     };
 
     handleClick = () => {
+        this.setState({ framework: this.props.framework });
         setTimeout(this.showMessage, 3000);
     };
 
