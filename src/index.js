@@ -4,6 +4,8 @@ import ReactDOM from "react-dom";
 import CoursesPageFunction from './CoursesPageFunction';
 import CoursesPageClass from './CoursesPageClass';
 
+import PureClassComponent from './LikeButton';
+
 class App extends React.Component {
     state = {
         framework: 'React',
@@ -27,6 +29,8 @@ class App extends React.Component {
                 </label>
                 <p><CoursesPageFunction framework={this.state.framework} /></p>
                 <p><CoursesPageClass framework={this.state.framework} /></p>
+
+                <PureClassComponent />
             </>
         )
     }
