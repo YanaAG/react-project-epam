@@ -1,10 +1,14 @@
 import React, { useState } from "react";
 import { render } from "react-dom";
+
 import ControlledComponent from "./ControlledComponent";
 import UncontrolledComponent from "./UncontrolledComponent";
 import UncontrolledComponentWithForwardRef from "./UncontrolledComponentWithForwardRef";
 import UncontrolledComponentWithUseRefHook from "./UncontrolledComponentWithUseRefHook";
 import CreateRefvsUseRef from "./createRef-vs-useRef";
+
+import CircleMouseTracker from "./HOCs/CircleTracker";
+import SquareMouseTracker from "./HOCs/SquareTracker";
 
 const App = () => {
     const [inputValue, setInputValue] = useState("");
@@ -41,6 +45,9 @@ const App = () => {
 
     return (
         <div>
+            {/*<CircleMouseTracker/>*/}
+            <SquareMouseTracker/>
+
             <ControlledComponent
                 inputValue={inputValue}
                 handleInputChange={event => setInputValue(event.target.value)}
