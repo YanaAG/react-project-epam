@@ -14,6 +14,7 @@ import CameraMouseTracker from "./HOCs/CameraTracker";
 import MouseTracker from "./RenderProps/MouseTracker";
 import CircleTracker from "./RenderProps/CircleTracker";
 import SquareTracker from "./RenderProps/SquareTracker";
+import PlayerTracker from "./RenderProps/PlayerTracker";
 
 const App = () => {
     const [inputValue, setInputValue] = useState("");
@@ -55,7 +56,8 @@ const App = () => {
             {/*<CameraMouseTracker/>*/}
 
             {/*<MouseTracker render={position => <CircleTracker position={position}/>}/>*/}
-            <MouseTracker render={position => <SquareTracker position={position}/>}/>
+            {/*<MouseTracker render={position => <SquareTracker position={position}/>}/>*/}
+            <MouseTracker render={position => <PlayerTracker position={position}/>}/>
 
             <ControlledComponent
                 inputValue={inputValue}
