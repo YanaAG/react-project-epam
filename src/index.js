@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 import { render } from "react-dom";
 import ControlledComponent from "./ControlledComponent";
 import UncontrolledComponent from "./UncontrolledComponent";
@@ -6,50 +6,41 @@ import UncontrolledComponentWithForwardRef from "./UncontrolledComponentWithForw
 import UncontrolledComponentWithUseRefHook from "./UncontrolledComponentWithUseRefHook";
 import CreateRefvsUseRef from "./createRef-vs-useRef";
 
-class App extends Component {
-    state = { inputValue: "" };
+const App = () => {
+    const [inputValue, setInputValue] = useState("");
 
-    setInputValue = event => {
-        // console.log('event', event.target.value);
-        this.setState({ inputValue: event.target.value });
+    const handleButtonClick = () => {
+        const valueToUpperCase = inputValue.toUpperCase();
+        setInputValue(valueToUpperCase);
     };
 
-    handleButtonClick = () => {
-        const valueToUpperCase = this.state.inputValue.toUpperCase();
-        this.setState({ inputValue: valueToUpperCase });
+    const makeUppercase = () => {
+        const value = ref.current.value;
+        ref.current.value = value.toUpperCase();
     };
 
-    makeUppercase = () => {
-        const value = this.ref.current.value;
-        this.ref.current.value = value.toUpperCase();
-    };
+    const ref = React.createRef();
 
-    ref = React.createRef();
-
-    render() {
-        // console.log("state", this.state);
-
-        return (
-            <div>
-                <ControlledComponent
-                    inputValue={this.state.inputValue}
-                    handleInputChange={this.setInputValue}
-                    handleButtonClick={this.handleButtonClick}
-                />
-                <UncontrolledComponent />
-                <br /> <br /> <hr />
-                <UncontrolledComponentWithForwardRef
-                    handleButtonClick={this.makeUppercase}
-                    ref={this.ref}
-                />
-                <br /> <br /> <hr />
-                <UncontrolledComponentWithUseRefHook />
-                <br /> <br /> <br /> <hr />
-                <h3>Let's compare createRef() & useRef()</h3>
-                <CreateRefvsUseRef />
-            </div>
-        );
-    }
-}
+    return (
+        <div>
+            <ControlledComponent
+                inputValue={inputValue}
+                handleInputChange={event => setInputValue(event.target.value)}
+                handleButtonClick={handleButtonClick}
+            />
+            <UncontrolledComponent />
+            <br /> <br /> <hr />
+            <UncontrolledComponentWithForwardRef
+                handleButtonClick={makeUppercase}
+                ref={ref}
+            />
+            <br /> <br /> <hr />
+            <UncontrolledComponentWithUseRefHook />
+            <br /> <br /> <br /> <hr />
+            <h3>Let's compare createRef() & useRef()</h3>
+            <CreateRefvsUseRef />
+        </div>
+    );
+};
 
 render(<App />, document.getElementById("root"));
