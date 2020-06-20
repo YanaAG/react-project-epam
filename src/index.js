@@ -11,6 +11,10 @@ import CircleMouseTracker from "./HOCs/CircleTracker";
 import SquareMouseTracker from "./HOCs/SquareTracker";
 import CameraMouseTracker from "./HOCs/CameraTracker";
 
+import MouseTracker from "./RenderProps/MouseTracker";
+import CircleTracker from "./RenderProps/CircleTracker";
+import SquareTracker from "./RenderProps/SquareTracker";
+
 const App = () => {
     const [inputValue, setInputValue] = useState("");
 
@@ -48,8 +52,11 @@ const App = () => {
         <div>
             {/*<CircleMouseTracker/>*/}
             {/*<SquareMouseTracker/>*/}
-            <CameraMouseTracker/>
-            
+            {/*<CameraMouseTracker/>*/}
+
+            {/*<MouseTracker render={position => <CircleTracker position={position}/>}/>*/}
+            <MouseTracker render={position => <SquareTracker position={position}/>}/>
+
             <ControlledComponent
                 inputValue={inputValue}
                 handleInputChange={event => setInputValue(event.target.value)}
