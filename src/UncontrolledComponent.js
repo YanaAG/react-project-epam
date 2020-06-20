@@ -19,6 +19,15 @@ class UncontrolledComponent extends React.Component {
         this.textInput.current.value = value.toUpperCase();
     };
 
+    handleSquareClick = () => {
+        const numberToSquare = this.textInput.current.value;
+        if (!isNaN(numberToSquare)) {
+            this.textInput.current.value = numberToSquare ** 2;
+        } else {
+            alert("Wrong type");
+        }
+    };
+
     render() {
         // console.log("render");
         // console.log("this.textInput first render", this.textInput);
@@ -27,7 +36,7 @@ class UncontrolledComponent extends React.Component {
                 <p>Uncontrolled Component</p>
                 <input ref={this.textInput} />
                 <button onClick={this.handleClick}>Uppercase</button>
-                <button>Square</button>
+                <button onClick={this.handleSquareClick}>Square</button>
             </>
         );
     }

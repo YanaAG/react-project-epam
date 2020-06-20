@@ -8,7 +8,7 @@ const UncontrolledComponentWithForwardRef = React.forwardRef((props, ref) => {
             <p>Uncontrolled Component With ForwardRef;</p>
             <input ref={ref} />
             <button onClick={props.handleButtonClick}>Uppercase</button>
-            <button>Square</button>
+            <button onClick={props.handleSquareButtonClick}>Square</button>
         </>
     );
 });

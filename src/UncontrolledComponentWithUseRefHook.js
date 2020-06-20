@@ -14,12 +14,21 @@ const UncontrolledComponentWithUseRefHook = () => {
         textInput.current.value = value.toUpperCase();
     };
 
+    const handleSquareClick = () => {
+        const numberToSquare = textInput.current.value;
+        if (!isNaN(numberToSquare)) {
+            textInput.current.value = numberToSquare ** 2;
+        } else {
+            alert("Wrong type");
+        }
+    };
+
     return (
         <>
             <p>Uncontrolled Component With UseRef Hook </p>
             <input ref={textInput} />
             <button onClick={handleClick}>Uppercase</button>
-            <button>Square</button>
+            <button onClick={handleSquareClick}>Square</button>
             <button onClick={() => setCount(count + 1)}>Cause re-render</button>
         </>
     );

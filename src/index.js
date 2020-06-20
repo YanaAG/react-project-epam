@@ -14,9 +14,27 @@ const App = () => {
         setInputValue(valueToUpperCase);
     };
 
+    const handleSquareButtonClick = () => {
+        const numberToSquare = Number(inputValue);
+        if (!isNaN(numberToSquare)) {
+            setInputValue(numberToSquare ** 2);
+        } else {
+            alert("Wrong type");
+        }
+    };
+
     const makeUppercase = () => {
         const value = ref.current.value;
         ref.current.value = value.toUpperCase();
+    };
+
+    const squareNumber = () => {
+        const numberToSquare = Number(ref.current.value);
+        if (!isNaN(numberToSquare)) {
+            ref.current.value = numberToSquare ** 2;
+        } else {
+            alert("Wrong type");
+        }
     };
 
     const ref = React.createRef();
@@ -27,11 +45,13 @@ const App = () => {
                 inputValue={inputValue}
                 handleInputChange={event => setInputValue(event.target.value)}
                 handleButtonClick={handleButtonClick}
+                handleSquareButtonClick={handleSquareButtonClick}
             />
             <UncontrolledComponent />
             <br /> <br /> <hr />
             <UncontrolledComponentWithForwardRef
                 handleButtonClick={makeUppercase}
+                handleSquareButtonClick={squareNumber}
                 ref={ref}
             />
             <br /> <br /> <hr />

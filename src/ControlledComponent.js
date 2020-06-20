@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
 
 const ControlledComponent = props => {
-    const { handleInputChange, handleButtonClick, inputValue } = props;
+    const { handleInputChange, handleButtonClick, handleSquareButtonClick, inputValue } = props;
 
     return (
         <>
@@ -12,7 +12,7 @@ const ControlledComponent = props => {
                 onChange={handleInputChange}
             />
             <button onClick={handleButtonClick}>Uppercase</button>
-            <button>Square</button>
+            <button onClick={handleSquareButtonClick}>Square</button>
         </>
     );
 };
