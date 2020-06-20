@@ -14,6 +14,11 @@ class App extends Component {
         this.setState({ inputValue: event.target.value });
     };
 
+    handleButtonClick = () => {
+        const valueToUpperCase = this.state.inputValue.toUpperCase();
+        this.setState({ inputValue: valueToUpperCase });
+    };
+
     makeUppercase = () => {
         const value = this.ref.current.value;
         this.ref.current.value = value.toUpperCase();
@@ -29,6 +34,7 @@ class App extends Component {
                 <ControlledComponent
                     inputValue={this.state.inputValue}
                     handleInputChange={this.setInputValue}
+                    handleButtonClick={this.handleButtonClick}
                 />
                 <UncontrolledComponent />
                 <br /> <br /> <hr />

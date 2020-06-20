@@ -11,7 +11,7 @@ const ControlledComponent = props => {
                 value={inputValue}
                 onChange={handleInputChange}
             />
-            <button>Uppercase</button>
+            <button onClick={handleButtonClick}>Uppercase</button>
             <button>Square</button>
         </>
     );
