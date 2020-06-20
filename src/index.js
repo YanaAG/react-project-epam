@@ -9,6 +9,7 @@ import CreateRefvsUseRef from "./createRef-vs-useRef";
 
 import CircleMouseTracker from "./HOCs/CircleTracker";
 import SquareMouseTracker from "./HOCs/SquareTracker";
+import CameraMouseTracker from "./HOCs/CameraTracker";
 
 const App = () => {
     const [inputValue, setInputValue] = useState("");
@@ -46,8 +47,9 @@ const App = () => {
     return (
         <div>
             {/*<CircleMouseTracker/>*/}
-            <SquareMouseTracker/>
-
+            {/*<SquareMouseTracker/>*/}
+            <CameraMouseTracker/>
+            
             <ControlledComponent
                 inputValue={inputValue}
                 handleInputChange={event => setInputValue(event.target.value)}
