@@ -1,13 +1,19 @@
 import React from "react"
 
-import Header from "./Header"
-import Buttons from "./Buttons"
+// import Header from "./Header"
+import HeaderWithHook from "./HeaderWithHook";
+
+// import Buttons from "./Buttons"
+import ButtonsWithHook from "./ButtonsWithHook";
 
 function App() {
     return (
         <div>
-            <Header />
-            <Buttons />
+            {/*<Header />*/}
+            <HeaderWithHook/>
+
+            {/*<Buttons />*/}
+            <ButtonsWithHook/>
         </div>
     )
 }
