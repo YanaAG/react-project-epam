@@ -1,13 +1,13 @@
 import React from "react"
 
 import Header from "./Header"
-import Button from "./Button"
+import Buttons from "./Buttons"
 
 function App() {
     return (
         <div>
             <Header />
-            <Button />
+            <Buttons />
         </div>
     )
 }

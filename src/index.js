@@ -10,4 +10,4 @@ ReactDOM.render(
         <App />
     </ThemeContextProvider>,
     document.getElementById("root")
-)
+);

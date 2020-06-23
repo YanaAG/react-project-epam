@@ -1,14 +1,14 @@
-import React, { Component } from "react";
+import React from "react";
 import { ThemeContextConsumer } from "./themeContext";
 
-function Header(props) {
+function Header() {
     return (
         <ThemeContextConsumer>
             {context => {
                 // console.log("context", context);
                 return (
-                    <header style={{'font-size': '14px'}} className={`${context.theme}-theme`}>
-                        <h2>{context.theme === "light" ? "Light" : "Dark"} Theme</h2>
+                    <header className={`${context.theme}-theme`}>
+                        <h2 className={`${context.fontSize}-font-size`}>{context.theme === "light" ? "Light" : "Dark"} Theme</h2>
                     </header>
                 );
             }}

@@ -8,6 +8,8 @@ header {
 }
 
 button {
+    font-family: "Times New Roman", sans-serif;
+    font-weight: bold;
     padding: 10px;
     border: none;
     margin: 10px;
@@ -21,4 +23,12 @@ button {
 .light-theme {
     background-color: whitesmoke;
     color: #333333;
+}
+
+.small-font-size {
+    font-size: 14px;
+}
+
+.big-font-size {
+    font-size: 24px;
 }
