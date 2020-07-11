@@ -1,63 +1,20 @@
-import React, { Component } from "react";
+import React from "react";
 import { render } from "react-dom";
+import { Provider, useSelector } from "react-redux";
 import "./style.css";
 import "./action-creator";
-const redux = require("redux");
+import store from "./redux";
 
 const App = () => {
-
-    const initialState = {
-        count: 0
-    };
-
-    //REDUCER
-    function reducer(state = initialState, action) {
-        switch (action.type) {
-            case "INCREMENT":
-                return {
-                    count: state.count + 1
-                };
-            case "DECREMENT":
-                return {
-                    count: state.count - 1
-                };
-            default:
-                return state;
-        }
-    }
-
-    //STORE
-    const store = redux.createStore(reducer);
-    // console.log("store", store);
-
-    //subscribe & getState
-    store.subscribe(() => {
-        console.log(store.getState());
-    });
-
-    //dispatch
-    store.dispatch({ type: "INCREMENT" });
-    store.dispatch({ type: "INCREMENT" });
-    store.dispatch({ type: "DECREMENT" });
+    const count = useSelector(state => state);
 
     return (
-        <div>
-            <p>Start editing to see some magic happen :)</p>
-        </div>
+        <>
+            <p>{count}</p>
+            <button className="button-minus" onClick={() => store.dispatch({ type: "DECREMENT" })}>-</button>
+            <button className="button-plus" onClick={() => store.dispatch({ type: "INCREMENT" })}>+</button>
+        </>
     );
 };
 
-render(<App />, document.getElementById("root"));
-
-//ACTION
-// const action = {
-//     type: "INCREMENT",
-//     payload: {}
-// }
-
-//ACTION CREATOR
-// function increment() {
-//     return {
-//         type: "INCREMENT"
-//     }
-// }
+render(<Provider store={store}><App /></Provider>, document.getElementById("root"));
